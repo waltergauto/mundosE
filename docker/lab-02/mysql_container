@@ -1,0 +1,6 @@
+docker run -d --name mysql_container --network my_network -e MYSQL_ROOT_PASSWORD=mysecretpassword -e MYSQL_DATABASE=mydatabase -v mis_datos:/var/lib/mysql mysql:latest
+
+docker run --name phpmyadmin_container -d --network my_network -e PMA_HOST=mysql_container -e PMA_PORT=3306 -p 8080:80 phpmyadmin/phpmyadmin:latest
+
+
+Para phpadmin se deben conectar con las credenciales de la base de datos: root:mysecretpassword
